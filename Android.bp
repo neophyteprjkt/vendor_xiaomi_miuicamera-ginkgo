@@ -1,0 +1,21 @@
+//
+// Automatically generated file. DO NOT MODIFY
+//
+
+soong_namespace {
+    imports: [
+        "device/xiaomi/miuicamera-ginkgo",
+    ],
+}
+
+android_app_import {
+	name: "MiuiCamera",
+	owner: "miuicamera",
+	apk: "proprietary/priv-app/MiuiCamera/MiuiCamera.apk",
+	overrides: ["Camera2 GCamGOPrebuilt"],
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
