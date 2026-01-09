@@ -1,6 +1,16 @@
+// Copyright (C) 2026 The Android Open Source Project
 //
-// Automatically generated file. DO NOT MODIFY
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 soong_namespace {
     imports: [
@@ -18,4 +28,392 @@ android_app_import {
 		enabled: false,
 	},
 	privileged: true,
+}
+
+
+cc_prebuilt_library_shared {
+    name: "libCameraEffectJNI",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libCameraEffectJNI.so"],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libGLESv2",
+                "libGLESv3",
+                "libEGL",
+                "libandroid",
+                "libui",
+                "libjnigraphics",
+                "libgui",
+                "libjpeg",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libarc_layer_sgl",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libarc_layer_sgl.so"],
+            shared_libs: [
+                "liblog",
+                "libdl",
+                "libc",
+                "libm",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libarcsoft_wideselfie",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libarcsoft_wideselfie.so"],
+            shared_libs: [
+                "libmpbase",
+                "liblog",
+                "libdl",
+                "libc",
+                "libm",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libcamera_arcsoft_beautyshot",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libcamera_arcsoft_beautyshot.so"],
+            shared_libs: [
+                "libmpbase",
+                "liblog",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libcamera_arcsoft_handgesture",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libcamera_arcsoft_handgesture.so"],
+            shared_libs: [
+                "libarc_layer_sgl",
+                "libhandengine.arcsoft",
+                "libmpbase",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libcamera_beauty_mpbase",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libcamera_beauty_mpbase.so"],
+            shared_libs: [
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libcamera_handgesture_mpbase",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libcamera_handgesture_mpbase.so"],
+            shared_libs: [
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libcamera_wideselfie_mpbase",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libcamera_wideselfie_mpbase.so"],
+            shared_libs: [
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libcom.xiaomi.camera.requestutil",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libcom.xiaomi.camera.requestutil.so"],
+            shared_libs: [
+                "libcrypto",
+                "libssl",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libhandengine.arcsoft",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libhandengine.arcsoft.so"],
+            shared_libs: [
+                "libmpbase",
+                "libarc_layer_sgl",
+                "liblog",
+                "libOpenCL",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libjni_arcsoft_beautyshot",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libjni_arcsoft_beautyshot.so"],
+            shared_libs: [
+                "libarcsoft_beautyshot",
+                "libmpbase",
+                "liblog",
+                "libandroid",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libjni_jpegutil_xiaomi",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libjni_jpegutil_xiaomi.so"],
+            shared_libs: [
+                "libion",
+                "libmedia",
+                "libcamera_client",
+                "libandroid_runtime",
+                "libnativehelper",
+                "libutils",
+                "libcutils",
+                "liblog",
+                "libgui",
+                "libui",
+                "libbinder",
+                "libhidlbase",
+                "libhidltransport",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libjni_wideselfie",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libjni_wideselfie.so"],
+            shared_libs: [
+                "libmpbase",
+                "libarcsoft_wideselfie",
+                "libjnigraphics",
+                "liblog",
+                "libandroid",
+                "libc",
+                "libm",
+                "libstdc++",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libmorpho_memory_allocator",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libmorpho_memory_allocator.so"],
+            shared_libs: [
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libmorpho_panorama",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libmorpho_panorama.so"],
+            shared_libs: [
+                "libmorpho_panorama_gp",
+                "libjnigraphics",
+                "libGLESv1_CM",
+                "libnativehelper",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libmorpho_panorama_gp",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libmorpho_panorama_gp.so"],
+            shared_libs: [
+                "libm",
+                "libc",
+                "libstdc++",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libmorpho_panorama_gp3",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libmorpho_panorama_gp3.so"],
+            shared_libs: [
+                "libjnigraphics",
+                "libGLESv1_CM",
+                "liblog",
+                "libandroid",
+                "libEGL",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+}
+
+cc_prebuilt_library_shared {
+    name: "libmorpho_sensor_fusion",
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libmorpho_sensor_fusion.so"],
+            shared_libs: [
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
 }
