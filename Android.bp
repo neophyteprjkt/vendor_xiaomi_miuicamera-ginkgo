@@ -14,6 +14,7 @@
 
 soong_namespace {
     imports: [
+	"vendor/xiaomi/ginkgo",
         "device/xiaomi/miuicamera-ginkgo",
     ],
 }
@@ -21,13 +22,45 @@ soong_namespace {
 android_app_import {
 	name: "MiuiCamera",
 	owner: "miuicamera",
-	apk: "proprietary/priv-app/MiuiCamera/MiuiCamera.apk",
+	apk: "proprietary/system/priv-app/MiuiCamera/MiuiCamera.apk",
 	overrides: ["Camera2 GCamGOPrebuilt"],
 	certificate: "platform",
 	dex_preopt: {
 		enabled: false,
 	},
 	privileged: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libmpbase_vendor",
+	owner: "xiaomi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libmpbase_vendor.so"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libOpenCL_vendor",
+	owner: "xiaomi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libOpenCL_vendor.so"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	prefer: true,
 }
 
 
@@ -85,7 +118,7 @@ cc_prebuilt_library_shared {
         android_arm64: {
             srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libarcsoft_wideselfie.so"],
             shared_libs: [
-                "libmpbase",
+                "libmpbase_vendor",
                 "liblog",
                 "libdl",
                 "libc",
@@ -105,7 +138,7 @@ cc_prebuilt_library_shared {
         android_arm64: {
             srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libcamera_arcsoft_beautyshot.so"],
             shared_libs: [
-                "libmpbase",
+                "libmpbase_vendor",
                 "liblog",
                 "libc",
                 "libm",
@@ -127,7 +160,7 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "libarc_layer_sgl",
                 "libhandengine.arcsoft",
-                "libmpbase",
+                "libmpbase_vendor",
                 "liblog",
                 "libc++",
                 "libc",
@@ -217,10 +250,10 @@ cc_prebuilt_library_shared {
         android_arm64: {
             srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libhandengine.arcsoft.so"],
             shared_libs: [
-                "libmpbase",
+                "libmpbase_vendor",
                 "libarc_layer_sgl",
                 "liblog",
-                "libOpenCL",
+                "libOpenCL_vendor",
                 "libc",
                 "libm",
                 "libdl",
@@ -240,7 +273,7 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libjni_arcsoft_beautyshot.so"],
             shared_libs: [
                 "libarcsoft_beautyshot",
-                "libmpbase",
+                "libmpbase_vendor",
                 "liblog",
                 "libandroid",
                 "libc++",
@@ -294,7 +327,7 @@ cc_prebuilt_library_shared {
         android_arm64: {
             srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libjni_wideselfie.so"],
             shared_libs: [
-                "libmpbase",
+                "libmpbase_vendor",
                 "libarcsoft_wideselfie",
                 "libjnigraphics",
                 "liblog",

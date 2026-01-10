@@ -13,6 +13,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     MiuiCamera \
+    libmpbase_vendor \
+    libOpenCL_vendor \
     libCameraEffectJNI \
     libarc_layer_sgl \
     libarcsoft_wideselfie \
