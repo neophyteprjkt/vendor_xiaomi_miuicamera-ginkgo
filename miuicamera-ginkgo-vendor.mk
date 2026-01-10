@@ -13,6 +13,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     MiuiCamera \
+    libarcsoft_beautyshot \
     libmpbase_vendor \
     libOpenCL_vendor \
     libCameraEffectJNI \

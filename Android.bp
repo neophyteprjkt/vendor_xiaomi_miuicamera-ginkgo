@@ -48,6 +48,22 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+	name: "libarcsoft_beautyshot",
+	owner: "xiaomi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libarcsoft_beautyshot.so"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	prefer: true,
+}
+
+cc_prebuilt_library_shared {
 	name: "libOpenCL_vendor",
 	owner: "xiaomi",
 	strip: {
@@ -137,16 +153,10 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libcamera_arcsoft_beautyshot.so"],
-            shared_libs: [
-                "libmpbase_vendor",
-                "liblog",
-                "libc",
-                "libm",
-                "libdl",
-            ],
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     strip: {
         none: true,
     },
@@ -180,12 +190,10 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libcamera_beauty_mpbase.so"],
-            shared_libs: [
-                "libc",
-            ],
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     strip: {
         none: true,
     },
@@ -196,12 +204,10 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libcamera_handgesture_mpbase.so"],
-            shared_libs: [
-                "libc",
-            ],
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     strip: {
         none: true,
     },
@@ -212,12 +218,10 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: ["proprietary/system/priv-app/MiuiCamera/lib/arm64/libcamera_wideselfie_mpbase.so"],
-            shared_libs: [
-                "libc",
-            ],
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     strip: {
         none: true,
     },
